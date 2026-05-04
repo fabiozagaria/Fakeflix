@@ -1,0 +1,535 @@
+:root {
+  --bg-color: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --primary-red: #e50914;
+  --primary-red-hover: #f40612;
+  --bg-modal: #181818;
+  --bg-card: #222222;
+  --border-color: #333333;
+  --color-match: #46d369;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* 1. HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 100;
+}
+
+.logo {
+  height: 35px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: var(--text-secondary);
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 16px;
+  color: var(--text-primary);
+  transition: background-color 0.2s;
+}
+
+.btn-login {
+  background-color: var(--primary-red);
+}
+
+.btn-red {
+  background-color: var(--primary-red);
+  font-size: 1.1rem;
+  padding: 12px 24px;
+}
+
+.btn-red:hover,
+.btn-login:hover {
+  background-color: var(--primary-red-hover);
+}
+
+/* 2. HERO */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/img/dark_poster_1777806013120.png') center/cover;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, var(--bg-color), transparent);
+}
+
+.hero-content {
+  max-width: 600px;
+  z-index: 10;
+}
+
+.hero-title-img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  line-height: 1.5;
+}
+
+.email-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.email-input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid var(--text-secondary);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.form-message {
+  font-size: 0.95rem;
+  margin-top: 5px;
+  height: 20px;
+}
+
+.error {
+  color: var(--primary-red);
+}
+
+.success {
+  color: var(--color-match);
+}
+
+/* 3. INFO */
+.info-section {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.match {
+  color: var(--color-match);
+}
+
+.age-rating,
+.hd {
+  border: 1px solid var(--text-secondary);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.genres,
+.cast,
+.creators {
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+}
+
+.genres strong,
+.cast strong,
+.creators strong {
+  color: var(--text-primary);
+}
+
+.info-desc {
+  margin-top: 15px;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* 4 & 6. CAROUSEL COMMON */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 15px 0;
+  scrollbar-width: none;
+}
+
+.carousel-track-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.carousel-item {
+  flex: 0 0 calc(25% - 12px); /* Default a 4 per view */
+  min-width: 220px;
+  background-color: var(--bg-card);
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+}
+
+.carousel-item img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.carousel-item-info {
+  padding: 10px;
+}
+
+.carousel-item-title {
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  z-index: 10;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+/* MODALE TRAILER */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-modal);
+  width: 90%;
+  max-width: 800px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.7);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+}
+
+#modal-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+#modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.modal-duration {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+#modal-desc {
+  line-height: 1.5;
+}
+
+/* 5. EPISODI */
+.episodes-section {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.episodes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.season-select {
+  background: #222;
+  color: white;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.episodes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.episode-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: var(--bg-card);
+  border-radius: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ep-num {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  width: 50px;
+  font-weight: bold;
+}
+
+.ep-info {
+  flex: 1;
+}
+
+.ep-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.ep-duration {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.ep-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 7. PIANI ABBONAMENTO */
+.plans-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.plan-card {
+  flex: 1;
+  min-width: 250px;
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.plan-card:hover {
+  border-color: var(--text-secondary);
+  transform: translateY(-5px);
+}
+
+.plan-card.selected {
+  border-color: var(--primary-red);
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.plan-price {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.plan-features {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.plan-features p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.plan-summary {
+  background: rgba(229, 9, 20, 0.2);
+  border: 1px solid var(--primary-red);
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  display: none;
+  font-size: 1.1rem;
+}
+
+.plan-summary.show {
+  display: block;
+}
+
+/* 8. FOOTER */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.language-select {
+  background: #000;
+  color: white;
+  border: 1px solid var(--text-secondary);
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+}
