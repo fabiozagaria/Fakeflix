@@ -24,7 +24,7 @@ Il focus è sull'**approccio Vanilla**: l'architettura è stata progettata in pu
 Il codice JS è stato suddiviso in sezioni semantiche chiare:
 - `Dati`: Database fittizio con costanti Array/Oggetti (es. `trailers`, `episodesBySeason`).
 - `Stato`: Un singolo oggetto `state` per definire l'entità selezionata (es. `selectedSeason`).
-- `Funzioni`: Piccole funzioni riutilizzabili con singola responsabilità (SRP).
+- `Funzioni`: Piccole funzioni riutilizzabili con singola responsabilità.
 
 **Perché è stato fatto così?** Per prevenire uno "Spaghetti Code". Utilizzando uno stato centralizzato, il flusso dell'applicazione diventa prevedibile: un evento (es. un click) cambia lo stato e chiama una funzione di `render` per allineare il DOM.
 

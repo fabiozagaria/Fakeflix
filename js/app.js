@@ -1,8 +1,3 @@
-/**
- * APP.JS
- * Progetto: Landing Page Stranger Things
- * Strutturato per facilità di lettura in: Dati, Stato, Selettori DOM, Funzioni, Event Listener, Init
- */
 
 /* =========================================================================
    1. DATI
@@ -56,10 +51,7 @@ const plans = [
 ];
 
 
-/* =========================================================================
-   2. STATO
-   Un unico oggetto (Source of Truth) per gestire le selezioni dinamiche dell'utente.
-   ========================================================================= */
+//state
 
 const state = {
   selectedSeason: 1,
@@ -68,10 +60,7 @@ const state = {
 };
 
 
-/* =========================================================================
-   3. SELETTORI DOM
-   Recuperiamo in variabili globali tutti gli elementi che modificheremo con JS.
-   ========================================================================= */
+
 
 // Hero form
 const emailForm = document.getElementById("email-form");
@@ -102,22 +91,14 @@ const planSummary = document.getElementById("plan-summary");
 const caroselsSections = document.querySelectorAll(".carousel-section");
 
 
-/* =========================================================================
-   4. FUNZIONI
-   Logica di business divisa per responsabilità chiare.
-   ========================================================================= */
+// Funzioni
 
-/**
- * Valida un indirizzo email con un'espressione regolare semplice.
- */
 function validateEmail(email) {
-  const re = /^\\S+@\\S+\\.\\S+$/;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
-/**
- * Gestisce il submit del form: valida l'input e mostra l'esito.
- */
+
 function handleEmailSubmit(event) {
   event.preventDefault();
   const emailValue = emailInput.value.trim();
@@ -138,9 +119,7 @@ function handleEmailSubmit(event) {
   }
 }
 
-/**
- * Genera l'HTML per i trailer scorrendo l'array 'trailers'.
- */
+
 function renderTrailers() {
   trailerTrack.innerHTML = "";
   trailers.forEach(trailer => {
@@ -173,18 +152,15 @@ function openTrailerModal(trailerId) {
   modalDesc.textContent = trailer.desc;
   
   trailerModal.classList.add("show");
-  document.body.style.overflow = "hidden"; // blocca scroll pagina principale
+  document.body.style.overflow = "hidden"; // blocco scroll pagina principale
 }
 
 function closeTrailerModal() {
   state.selectedTrailerId = null;
   trailerModal.classList.remove("show");
-  document.body.style.overflow = ""; // sblocca scroll pagina
+  document.body.style.overflow = ""; // sblocco scroll pagina
 }
 
-/**
- * Inizializza il selettore (select) delle stagioni leggendo le chiavi dell'oggetto episodesBySeason.
- */
 function initSeasonsSelect() {
   seasonSelect.innerHTML = "";
   const seasons = Object.keys(episodesBySeason);
@@ -192,16 +168,14 @@ function initSeasonsSelect() {
     const option = document.createElement("option");
     option.value = seasonNum;
     option.textContent = `Stagione ${seasonNum}`;
-    if (parseInt(seasonNum) === state.selectedSeason) {
+    if (Number(seasonNum) === state.selectedSeason) {
       option.selected = true;
     }
     seasonSelect.appendChild(option);
   });
 }
 
-/**
- * Mostra gli episodi nel contenitore HTML in base alla stagione scelta nello stato.
- */
+
 function renderEpisodes() {
   episodesContainer.innerHTML = "";
   const episodes = episodesBySeason[state.selectedSeason];
@@ -223,17 +197,11 @@ function renderEpisodes() {
   }
 }
 
-/**
- * Aggiorna lo stato e re-renderizza gli episodi quando si cambia opzione nel menu a tendina.
- */
 function changeSeason(seasonNumber) {
-  state.selectedSeason = parseInt(seasonNumber);
+  state.selectedSeason = Number(seasonNumber);
   renderEpisodes();
 }
 
-/**
- * Genera l'HTML del carosello "Potrebbe piacerti".
- */
 function renderSuggestions() {
   suggestionsTrack.innerHTML = "";
   suggestions.forEach(s => {
@@ -276,10 +244,7 @@ function renderPlans() {
   });
 }
 
-/**
- * Aggiorna lo stato, ri-renderizza i piani (per mostrare il bordo rosso) 
- * e aggiorna il riepilogo a fondo pagina.
- */
+
 function selectPlan(planId) {
   state.selectedPlanId = planId;
   renderPlans();
@@ -307,10 +272,7 @@ function scrollCarousel(track, direction) {
 }
 
 
-/* =========================================================================
-   5. EVENT LISTENER
-   Aggancio degli eventi ai selettori DOM per reagire alle azioni dell'utente.
-   ========================================================================= */
+// Event Listeners
 
 // Validazione Form Email
 emailForm.addEventListener("submit", handleEmailSubmit);

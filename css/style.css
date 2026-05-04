@@ -225,7 +225,6 @@ h2 {
 
 .carousel-track-wrapper {
   overflow-x: auto;
-  scroll-behavior: smooth;
   width: 100%;
   padding: 15px 0;
   scrollbar-width: none;
