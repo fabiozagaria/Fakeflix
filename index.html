@@ -8,7 +8,6 @@
   <script src="js/app.js" defer></script>
 </head>
 <body>
-  <!-- 1. HEADER / NAVIGAZIONE -->
   <header class="header">
     <div class="logo-container">
       <img src="assets/img/logo-netflix-esteso.webp" alt="Netflix Logo" class="logo">
@@ -23,7 +22,6 @@
     <button class="btn btn-login">Accedi</button>
   </header>
 
-  <!-- 2. HERO SECTION -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
@@ -38,7 +36,6 @@
     </div>
   </section>
 
-  <!-- 3. INFORMAZIONI STATICHE -->
   <section id="info" class="section info-section">
     <div class="container">
       <div class="info-meta">
@@ -55,7 +52,6 @@
     </div>
   </section>
 
-  <!-- 4. TRAILER (Carosello Dinamico JS) -->
   <section id="trailer" class="section carousel-section">
     <div class="container">
       <h2>Trailer e Dietro le Quinte</h2>
@@ -63,7 +59,6 @@
         <button class="carousel-btn prev-btn">&#10094;</button>
         <div class="carousel-track-wrapper">
           <ul id="trailer-track" class="carousel-track">
-            <!-- Card renderizzate da JS -->
           </ul>
         </div>
         <button class="carousel-btn next-btn">&#10095;</button>
@@ -71,7 +66,6 @@
     </div>
   </section>
 
-  <!-- MODALE UNICA RIUTILIZZABILE -->
   <div id="trailer-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal" class="close-modal">&times;</span>
@@ -84,7 +78,6 @@
     </div>
   </div>
 
-  <!-- 5. EPISODI (Stagioni e Lista Dinamica JS) -->
   <section id="episodes" class="section episodes-section">
     <div class="container">
       <div class="episodes-header">
@@ -92,12 +85,10 @@
         <select id="season-select" class="season-select"></select>
       </div>
       <ul id="episodes-container" class="episodes-list">
-        <!-- Renderizzati dinamicamente -->
       </ul>
     </div>
   </section>
 
-  <!-- 6. POTREBBE PIACERTI (Carosello Dinamico JS) -->
   <section id="suggestions" class="section carousel-section">
     <div class="container">
       <h2>Potrebbe piacerti</h2>
@@ -105,7 +96,6 @@
         <button class="carousel-btn prev-btn">&#10094;</button>
         <div class="carousel-track-wrapper">
           <ul id="suggestions-track" class="carousel-track">
-            <!-- Card renderizzate da JS -->
           </ul>
         </div>
         <button class="carousel-btn next-btn">&#10095;</button>
@@ -113,20 +103,16 @@
     </div>
   </section>
 
-  <!-- 7. PIANI ABBONAMENTO (Selezione Dinamica JS) -->
   <section id="plans" class="section plans-section">
     <div class="container">
       <h2>Scegli il tuo piano</h2>
       <div id="plans-container" class="plans-grid">
-        <!-- Renderizzati da JS -->
       </div>
       <div id="plan-summary" class="plan-summary">
-        <!-- Riepilogo dinamico JS -->
       </div>
     </div>
   </section>
 
-  <!-- 8. FOOTER -->
   <footer class="footer">
     <div class="container">
       <p>Domande? Chiama il numero 800 931 413</p>

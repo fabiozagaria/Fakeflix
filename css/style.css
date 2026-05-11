@@ -38,7 +38,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* 1. HEADER */
 .header {
   position: fixed;
   top: 0;
@@ -96,7 +95,6 @@ h2 {
   background-color: var(--primary-red-hover);
 }
 
-/* 2. HERO */
 .hero {
   position: relative;
   height: 80vh;
@@ -172,7 +170,6 @@ h2 {
   color: var(--color-match);
 }
 
-/* 3. INFO */
 .info-section {
   border-bottom: 1px solid var(--border-color);
 }
@@ -216,7 +213,6 @@ h2 {
   max-width: 800px;
 }
 
-/* 4 & 6. CAROUSEL COMMON */
 .carousel-container {
   position: relative;
   display: flex;
@@ -241,7 +237,7 @@ h2 {
 }
 
 .carousel-item {
-  flex: 0 0 calc(25% - 12px); /* Default a 4 per view */
+  flex: 0 0 calc(25% - 12px);
   min-width: 220px;
   background-color: var(--bg-card);
   border-radius: 5px;
@@ -297,7 +293,6 @@ h2 {
   right: 0;
 }
 
-/* MODALE TRAILER */
 .modal {
   display: none;
   position: fixed;
@@ -365,7 +360,6 @@ h2 {
   line-height: 1.5;
 }
 
-/* 5. EPISODI */
 .episodes-section {
   background-color: rgba(255, 255, 255, 0.02);
 }
@@ -432,7 +426,6 @@ h2 {
   line-height: 1.4;
 }
 
-/* 7. PIANI ABBONAMENTO */
 .plans-grid {
   display: flex;
   flex-wrap: wrap;
@@ -496,7 +489,6 @@ h2 {
   display: block;
 }
 
-/* 8. FOOTER */
 .footer {
   border-top: 1px solid var(--border-color);
   padding: 40px 0;
