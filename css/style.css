@@ -95,6 +95,11 @@ h2 {
   background-color: var(--primary-red-hover);
 }
 
+.main {
+  height: 90%;
+  margin: 0 auto;
+}
+
 .hero {
   position: relative;
   height: 80vh;
