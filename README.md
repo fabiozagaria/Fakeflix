@@ -1,19 +1,27 @@
-# Fakeflix
+# Fakeflix — Landing page in JavaScript vanilla
 
-Landing page responsive ispirata all'esperienza Netflix e dedicata a Stranger Things. È sviluppata esclusivamente con HTML, CSS e JavaScript vanilla per consolidare i fondamenti del frontend senza framework.
+Landing page responsive ispirata all'esperienza di una piattaforma streaming e dedicata a Stranger Things. Il progetto è stato realizzato senza framework per consolidare HTML, CSS e JavaScript nativo.
 
-[Demo live](https://fakeflix-lemon-six.vercel.app/)
+[Demo online](https://fakeflix-lemon-six.vercel.app/)
+
+## Competenze dimostrate
+
+- costruzione di un'interfaccia responsive senza librerie UI;
+- manipolazione dinamica del DOM;
+- gestione centralizzata di dati e stato;
+- organizzazione degli eventi utente;
+- validazione di un form con feedback visivo;
+- creazione di componenti visuali riutilizzabili tramite JavaScript.
 
 ## Funzionalità
 
-- navigazione tra le sezioni della pagina;
-- validazione dell'indirizzo email con feedback visivo;
-- trailer generati dinamicamente;
-- modale riutilizzabile per i contenuti;
+- navigazione tra le sezioni;
+- validazione dell'indirizzo email;
+- trailer generati da strutture dati JavaScript;
+- modale unica e riutilizzabile;
 - selezione della stagione e rendering degli episodi;
 - caroselli orizzontali realizzati con API native del browser;
-- selezione di un piano e riepilogo dinamico;
-- layout responsive.
+- selezione di un piano e riepilogo dinamico.
 
 ## Tecnologie
 
@@ -21,18 +29,19 @@ Landing page responsive ispirata all'esperienza Netflix e dedicata a Stranger Th
 - CSS3
 - JavaScript ES6+
 - DOM API
-- Flexbox e CSS custom properties
+- Flexbox
+- CSS custom properties
 
 ## Scelte tecniche
 
-Il progetto usa un piccolo stato centralizzato per mantenere prevedibile il flusso dell'interfaccia. Gli eventi aggiornano lo stato e richiamano funzioni di rendering dedicate, evitando di distribuire la logica direttamente nel markup.
+Il progetto utilizza un piccolo oggetto di stato come fonte centrale dei dati. Gli eventi aggiornano lo stato e richiamano funzioni di rendering dedicate, mantenendo separati contenuti, comportamento e presentazione.
 
-Una singola modale viene riutilizzata per tutti i trailer; episodi, piani e card sono generati a partire da strutture dati JavaScript.
+Una singola modale serve tutti i trailer, mentre episodi e piani vengono generati a partire da array e oggetti JavaScript.
 
 ## Struttura
 
 ```text
-Fakeflix
+fakeflix-vanilla-js
 ├── assets
 ├── css
 │   └── style.css
@@ -44,27 +53,23 @@ Fakeflix
 
 ## Avvio in locale
 
-Non sono richieste dipendenze o compilazione.
+Il progetto non richiede dipendenze o compilazione.
 
 ```bash
-git clone https://github.com/fabiozagaria/Fakeflix.git
-cd Fakeflix
+git clone https://github.com/fabiozagaria/fakeflix-vanilla-js.git
+cd fakeflix-vanilla-js
 ```
 
-Apri `index.html` nel browser oppure servi la cartella con un server statico locale.
+Apri `index.html` nel browser oppure utilizza un server statico locale.
 
-## Obiettivi formativi
+## Limiti del progetto
 
-- manipolazione del DOM;
-- gestione degli eventi;
-- organizzazione di dati e stato;
-- componenti visuali riutilizzabili senza framework;
-- responsive design.
+Fakeflix è una demo frontend: non include autenticazione, riproduzione video reale, pagamenti o backend.
 
 ## Disclaimer
 
-Fakeflix è un progetto esclusivamente educativo. Non è affiliato a Netflix e i marchi o contenuti citati appartengono ai rispettivi proprietari.
+Progetto esclusivamente educativo, non affiliato a Netflix. Marchi e contenuti citati appartengono ai rispettivi proprietari.
 
 ## Autore
 
-Sviluppato da [Fabio Zagaria](https://github.com/fabiozagaria) durante il percorso LabForWeb / Nerd Academy.
+Fabio Zagaria — progetto realizzato durante il percorso LabForWeb / Nerd Academy.
