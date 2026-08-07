@@ -1,52 +1,75 @@
-# Prova Pratica Landing Page Stranger Things (Netflix Clone)
-Realizzato per Labforweb / Nerd Academy.
+# Fakeflix — Landing page in JavaScript vanilla
 
-## Descrizione del Progetto
-L'obiettivo di questo progetto è realizzare una Landing Page funzionale, pulita e ben documentata ispirata alla pagina Netflix di Stranger Things.
+Landing page responsive ispirata all'esperienza di una piattaforma streaming e dedicata a Stranger Things. Il progetto è stato realizzato senza framework per consolidare HTML, CSS e JavaScript nativo.
 
-Il focus è sull'**approccio Vanilla**: l'architettura è stata progettata in puro HTML, CSS e JavaScript per dimostrare comprensione profonda dei fondamenti web, evitando librerie terze o framework come React, Angular o Bootstrap, come da specifiche.
+[Demo online](https://fakeflix-lemon-six.vercel.app/)
 
-## Tecnologie Usate
-- **HTML5**: Per la struttura e la semantica della pagina (`index.html`).
-- **CSS3**: Per stilizzare il documento e gestire il layout responsivo (`css/style.css`). Ho usato Flexbox, un blocco `:root` per variabili riutilizzabili e transizioni morbide per l'esperienza utente.
-- **JavaScript (Vanilla)**: Per l'interazione utente e la manipolazione dinamica del DOM (`js/app.js`). Strutturato in modo modulare per dati, stato e funzioni.
+## Competenze dimostrate
 
-## Struttura File
-- `index.html`: Struttura centrale e marcatori per le aree dinamiche.
-- `css/style.css`: Stili organizzati in moduli visivi corrispondenti alle sezioni della pagina.
-- `js/app.js`: Contiene tutto il comportamento dell'applicazione.
-- `assets/`: Directory pensata per ospitare file statici come immagini o loghi. (Nota: alcuni asset servono per scopi puramente dimostrativi/didattici e provengono dalle lezioni precedenti).
-- `README.md`: Questo file esplicativo.
+- costruzione di un'interfaccia responsive senza librerie UI;
+- manipolazione dinamica del DOM;
+- gestione centralizzata di dati e stato;
+- organizzazione degli eventi utente;
+- validazione di un form con feedback visivo;
+- creazione di componenti visuali riutilizzabili tramite JavaScript.
 
-## Funzionalità Implementate (Dettaglio Tecnico)
+## Funzionalità
 
-### 1. Architettura JavaScript e Stato ("Source of Truth")
-Il codice JS è stato suddiviso in sezioni semantiche chiare:
-- `Dati`: Database fittizio con costanti Array/Oggetti (es. `trailers`, `episodesBySeason`).
-- `Stato`: Un singolo oggetto `state` per definire l'entità selezionata (es. `selectedSeason`).
-- `Funzioni`: Piccole funzioni riutilizzabili con singola responsabilità.
+- navigazione tra le sezioni;
+- validazione dell'indirizzo email;
+- trailer generati da strutture dati JavaScript;
+- modale unica e riutilizzabile;
+- selezione della stagione e rendering degli episodi;
+- caroselli orizzontali realizzati con API native del browser;
+- selezione di un piano e riepilogo dinamico.
 
-**Perché è stato fatto così?** Per prevenire uno "Spaghetti Code". Utilizzando uno stato centralizzato, il flusso dell'applicazione diventa prevedibile: un evento (es. un click) cambia lo stato e chiama una funzione di `render` per allineare il DOM.
+## Tecnologie
 
-### 2. Validazione Form Email (Hero)
-Collegata alla funzione `handleEmailSubmit`, previene il default (ricaricamento della pagina). Effettua controlli sulla lunghezza e usa una RegExp per assicurarsi che il formato corrisponda ad una email vera.
-**Aggiornamento DOM:** Mostra classi "error" (rosso) o "success" (verde) nel nodo sottostante (`emailMessage`).
+- HTML5
+- CSS3
+- JavaScript ES6+
+- DOM API
+- Flexbox
+- CSS custom properties
 
-### 3. Trailer Dinamici e Modale Unica
-Generati dinamicamente tramite iterazione dell'array `trailers`. Abbiamo una **singola Modale riutilizzabile** nascosta nel DOM base.
-**Come funziona?** Cliccando sulla card generata, viene chiamata `openTrailerModal(id)`. Questa funzione estrae l'ID, recupera i dettagli dal database, sovrascrive immagine e testo della singola modale e applica la classe CSS `.show` per mostrarla a schermo.
+## Scelte tecniche
 
-### 4. Episodi per Stagione
-I dati sono mantenuti nell'oggetto `episodesBySeason`, dove ogni chiave è una Stagione.
-**Logica JS:** Al cambiamento della tendina HTML (`changeSeason()`), lo `state.selectedSeason` viene aggiornato. Subito dopo viene chiamata `renderEpisodes()`, la quale svuota il contenitore precedente nel DOM e inietta solo il contenuto dell'array riferito a quella stagione.
+Il progetto utilizza un piccolo oggetto di stato come fonte centrale dei dati. Gli eventi aggiornano lo stato e richiamano funzioni di rendering dedicate, mantenendo separati contenuti, comportamento e presentazione.
 
-### 5. Piani in Abbonamento
-Generiamo tre card usando l'array `plans`. Al click (`selectPlan(id)`), la card assume un bordo rosso evidenziato grazie alla classe dinamica `.selected`.
-**Riepilogo:** Viene inoltre attivato `renderPlanSummary()` che mostra a fondopagina un messaggio amichevole confermando l'ID e il prezzo del piano.
+Una singola modale serve tutti i trailer, mentre episodi e piani vengono generati a partire da array e oggetti JavaScript.
 
-### 6. Caroselli orizzontali nativi
-I caroselli sfruttano la potenzialità del CSS moderno: `display: flex`, `overflow-x: auto` e `scroll-behavior: smooth`. 
-**Logica scroll:** In Javascript abbiamo la funzione riutilizzabile `scrollCarousel(track, direction)`. Il contenitore visibile viene calcolato come `track.clientWidth * 0.8` (scrolla di quasi una schermata intera alla volta). Usiamo quindi la funzione JS nativa `scrollBy()` per uno sliding fluido.
+## Struttura
 
----
-_Progetto a scopo valutativo ed educativo._
+```text
+fakeflix-vanilla-js
+├── assets
+├── css
+│   └── style.css
+├── js
+│   └── app.js
+├── index.html
+└── README.md
+```
+
+## Avvio in locale
+
+Il progetto non richiede dipendenze o compilazione.
+
+```bash
+git clone https://github.com/fabiozagaria/fakeflix-vanilla-js.git
+cd fakeflix-vanilla-js
+```
+
+Apri `index.html` nel browser oppure utilizza un server statico locale.
+
+## Limiti del progetto
+
+Fakeflix è una demo frontend: non include autenticazione, riproduzione video reale, pagamenti o backend.
+
+## Disclaimer
+
+Progetto esclusivamente educativo, non affiliato a Netflix. Marchi e contenuti citati appartengono ai rispettivi proprietari.
+
+## Autore
+
+Fabio Zagaria — progetto realizzato durante il percorso LabForWeb / Nerd Academy.
